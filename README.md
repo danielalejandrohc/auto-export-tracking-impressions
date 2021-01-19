@@ -1,5 +1,5 @@
 # Introduction
-This repo serves the purpose of hosting the node script that updates a Google Sheet with data from Redshift for the purpose of having Tableau read from the sheet to automatically update the data.
+This repo serves the purpose of hosting the node script that updates a Google Sheet with data from Redshift. This project helps to transfer data to build a framework to provide visibility to Project Managers about priorities and internal SLAs depending on the current scenario of a ¨customer score¨.
 
 ## Installation
 Use the package manager [NPM](https://www.npmjs.com/get-npm) to install all the dependencies.
