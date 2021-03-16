@@ -25,6 +25,9 @@ provider:
     Tenants: all
     BilledTeam: DataAnalyst
 
+custom:
+  ssm: ssm:/aws/reference/secretsmanager/auto-export-tracking-impressions
+
 package:
   individually: true
   exclude:
@@ -40,7 +43,10 @@ functions:
     name: da-auto-export-tracking-impressions
     handler: index.handler
     description: Exports Redshift Tracking Data
-    environment: ${file(env.yml)}
+    environment:
+     CONFIG_JSON: ${self:custom.ssm.CONFIG_JSON}
+     GOOGLE_TOKEN_JSON: ${self:custom.ssm.GOOGLE_TOKEN_JSON}
+     CLIENT_ID: ${self:custom.ssm.CLIENT_ID}
     events:
       - schedule:
           rate: cron(30 20 ? * * *)
